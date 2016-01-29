@@ -1,8 +1,8 @@
 # CS4222LightAnalyzer
 <br/><br/>
-Team members:
-1. Ong Teck Sheng (Dex) - A0097706U
-2. Matthew Saw - A0097556M
+Team members:<br/>
+1. Ong Teck Sheng (Dex) - A0097706U<br/>
+2. Matthew Saw - A0097556M<br/>
 3. William Kimsha - A0100234E
 <br/><br/>
 Task 3 - Limitations of using light sensor<br/>
