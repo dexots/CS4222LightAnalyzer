@@ -195,7 +195,7 @@ public class LightAnalyzerActivity
             (TextView) findViewById( R.id.PA1Activity_TextView_Light );
 
         // Disable the stop button
-        stopLightButton.setEnabled( false );
+        stopLightButton.setEnabled(false);
 
         // Set up button listeners
         setUpButtonListeners();
@@ -205,31 +205,31 @@ public class LightAnalyzerActivity
     private void setUpButtonListeners() {
 
         // Start light sampling
-        startLightButton.setOnClickListener( new View.OnClickListener() {
-                public void onClick ( View v ) {
-                    // Start light sampling
-                    startLightSampling();
-                    // Disable the start button and enable the stop button
-                    startLightButton.setEnabled( false );
-                    stopLightButton.setEnabled( true );
-                    // Inform the user
-                    lightTextView.setText( "\nAwaiting Light readings...\n" );
-                    createToast( "Light sensor sampling started" );
-                }
-            } );
+        startLightButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Start light sampling
+                startLightSampling();
+                // Disable the start button and enable the stop button
+                startLightButton.setEnabled(false);
+                stopLightButton.setEnabled(true);
+                // Inform the user
+                lightTextView.setText("\nAwaiting Light readings...\n");
+                createToast("Light sensor sampling started");
+            }
+        });
 
         // Stop light sampling
-        stopLightButton.setOnClickListener( new View.OnClickListener() {
-                public void onClick ( View v ) {
-                    // Stop light sampling
-                    stopLightSampling();
-                    // Disable the stop button and enable the start button
-                    startLightButton.setEnabled( true );
-                    stopLightButton.setEnabled( false );
-                    // Inform the user
-                    createToast( "Light sensor sampling stopped" );
-                }
-            } );
+        stopLightButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Stop light sampling
+                stopLightSampling();
+                // Disable the stop button and enable the start button
+                startLightButton.setEnabled(true);
+                stopLightButton.setEnabled(false);
+                // Inform the user
+                createToast("Light sensor sampling stopped");
+            }
+        });
     }
 
     /** Helper method that updates the light text view. */
@@ -241,6 +241,13 @@ public class LightAnalyzerActivity
         sb.append( "\nLight--" );
         sb.append( "\nNumber of readings: " + numLightReadings );
         sb.append( "\nAmbient light level (lux): " + lux );
+
+        if (lux > 450.0) {
+            sb.append( "\nYou are currently outdoor" );
+        } else {
+            sb.append( "\nYou are currently indoor" );
+        }
+
 
         // Update the text view in the main UI thread
         handler.post ( new Runnable() {
